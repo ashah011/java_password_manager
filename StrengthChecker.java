@@ -7,17 +7,24 @@ public class StrengthChecker
     //returns null if password is valid, otherwise returns error message
     public static String validatePassword(char[] password, char[] confirmPassword) 
     {
-        if (password.length < minLength) 
+        //checks if password meets requirements
+        if (password.length < minLength)  //checks if password is at least 15 characters long
         {
             return "Password must be at least " + minLength + " characters long.";
         } 
-         if (!Arrays.equals(password, confirmPassword)) 
+         if (!Arrays.equals(password, confirmPassword)) //makes sure both fields match
         {
             return "Passwords do not match.";
         } 
-        else 
-        return null;
 
+        for(int i  =0; i <password.length - 2; i++) //checks if password contains 2 or more consecutive characters
+        {
+            if(password[i] == password[i+1] && password[i] == password[i+2]) 
+            {
+                return "Password contains 3 consecutive characters.";
+            }
+        }
+        return null;
     }
     //returns 0-100 score of password strength based on length and characters
     public static int score(char[] password) 

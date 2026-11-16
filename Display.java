@@ -20,7 +20,6 @@ public class Display extends JFrame
       super("Password Manager");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setLayout(new GridLayout(5, 2, 10, 10));
-    //  applyTheme();
       add(new JLabel("Enter Website"));
       add(websiteField);
       add(new JLabel("Enter Password"));

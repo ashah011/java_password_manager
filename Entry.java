@@ -3,10 +3,19 @@ public class Entry
     public final String website;
     public final String username;
     public final String password;
+    
     public Entry(String website, String username, String password) 
     {
+        if(website == null || website.isBlank())
+        {
+            throw new IllegalArgumentException("Website cannot be null or blank");
+        }
+        if(password == null || password.isBlank())
+        {
+            throw new IllegalArgumentException("Password cannot be null or blank");
+        }
         this.website = website;
-        this.username = username;
+        this.username = (username == null) ? "" : username;
         this.password = password;
     }
     public String getWebsite() 
@@ -24,6 +33,6 @@ public class Entry
 
     public String toString() 
     {
-        return "Your Entry: Website: " + website + ", Username: " + username + ", Password: " + password;
+        return "Entry[website=" + website + ", username=" + username + ", password=****]";
     }
 }
