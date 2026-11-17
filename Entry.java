@@ -3,9 +3,8 @@ public class Entry
     private final String website; //values cannot be reassigned after construction, so these entries are immuteable and only this class can touch the fields directly
     private final String username;
     private final String password;
-    private final String notes;
     
-    public Entry(String website, String username, String password, String notes) 
+    public Entry(String website, String username, String password) 
     {
         if(website == null || website.isBlank())
         {
@@ -18,7 +17,6 @@ public class Entry
         this.website = website;
         this.username = (username == null) ? "" : username;
         this.password = password;
-        this.notes = (notes == null) ? "" : notes;
     }
     public String getWebsite() 
     {
@@ -31,10 +29,6 @@ public class Entry
     public String getPassword() 
     {
         return password;
-    }
-    public String getNotes() 
-    {
-        return notes;
     }
     @Override //replace the built-in toString method with a custom one that hides the password to prevent accidental exposure
     public String toString() 

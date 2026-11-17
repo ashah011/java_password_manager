@@ -23,17 +23,17 @@ public class Vault {
         }
     }
     public boolean removeEntry(int index) //removes entry at specified index and returns true if successful, false if index is invalid
-{
-    try
     {
-        entries.remove(index);
-        return true;
-    }
-    catch (IndexOutOfBoundsException e)
-    {
-        return false;   // no entry at that position
-    }
-}
+        try
+        {
+            entries.remove(index);
+            return true;
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            return false;   // no entry at that position
+        }
+    }   
     public int getSize() //makes sure the size of the list is correct
     {
         return entries.size(); 
