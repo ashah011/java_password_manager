@@ -11,7 +11,7 @@ import javax.crypto.spec.GCMParameterSpec;
 public class EncryptionService 
 {
     private static final int IV_LENGTH_BYTES = 12; //initialization value, 12 random bytes that must be different for every encryption
-    private static final int TAG_LENGTH_BITS = 128; //authentication tag length, 128 bits is the minimum recommended by NIST
+    private static final int TAG_LENGTH_BITS = 128; //authentication tag length, 128 bits is the full-length tag, and it gives the strongest tamper detection
     public byte[] encrypt(byte[] plaintext, SecretKey key) throws GeneralSecurityException
     {
         //make a random 12 byte IV

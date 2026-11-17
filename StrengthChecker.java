@@ -17,7 +17,7 @@ public class StrengthChecker
             return "Passwords do not match.";
         } 
 
-        for(int i  =0; i <password.length - 2; i++) //checks if password contains 2 or more consecutive characters
+        for(int i  =0; i <password.length - 2; i++) //checks if password contains 3 or more consecutive characters
         {
             if(password[i] == password[i+1] && password[i] == password[i+2]) 
             {

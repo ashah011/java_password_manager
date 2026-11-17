@@ -33,6 +33,7 @@ import java.util.Arrays;
          setDefaultCloseOperation(EXIT_ON_CLOSE);
          setLayout(new GridLayout(7, 2, 10, 10));
          add(new JLabel("Enter Website: "));
+         add(websiteField);
          add(new JLabel("Enter Username"));
          add(usernameField);
          add(new JLabel("Enter Password"));
@@ -89,7 +90,7 @@ import java.util.Arrays;
                         usernameField.getText().trim(),
                         new String(pass1)));
          storage.save(vault, masterPassword);
-         statusLabel.setText("SAVED! Numebr of Entries: " + vault.getSize());
+         statusLabel.setText("SAVED! Number of Entries: " + vault.getSize());
          websiteField.setText("");
          usernameField.setText("");
       }
@@ -100,7 +101,7 @@ import java.util.Arrays;
       catch(IOException | GeneralSecurityException ex)
       {
          vault.removeEntry(vault.getSize() - 1); //remove the last entry
-         statusLabel.setText("Could not save entry: " + ex.getMessage() + "\nTRY AGAIN");
+         statusLabel.setText("Could not save entry: " + ex.getMessage() + "TRY AGAIN");
       }
       finally{
          Arrays.fill(pass1, '\0');
@@ -121,8 +122,8 @@ import java.util.Arrays;
       StringBuilder sb = new StringBuilder();
       for(int i = 0; i < all.size(); i++)
       {
-         sb.append(i + 1).append(". ");
-            .append(all.get(i).getWebsite());
+         sb.append(i + 1).append(". ")
+            .append(all.get(i).getWebsite())
             .append(" (").append(all.get(i).getUsername()).append(")\n");
       }
       sb.append("\nEnter a number to show its password");
@@ -137,7 +138,7 @@ import java.util.Arrays;
          Entry entry = vault.getEntry(Integer.parseInt(input.trim()) - 1);
          JOptionPane.showMessageDialog(this, entry.getWebsite() + "\nPassword: " + entry.getPassword());
       }
-      catch(IllegalArgumentExeption ex)
+      catch(IllegalArgumentException ex)
       {
          JOptionPane.showMessageDialog(this, "No entry with that number");
       }
@@ -149,12 +150,12 @@ import java.util.Arrays;
       {
          int score = StrengthChecker.score(pw);
          strengthBar.setValue(score);
-         if(score < 50)
-            setForeground(Color.RED);
-         if(score == 50)
-            setForeground(Color.ORANGE);
-         if(score > 50)
-            setForeground(Color.GREEN);
+         if (score < 40)
+            strengthBar.setForeground(Color.RED);
+         else if (score < 70)
+            strengthBar.setForeground(Color.ORANGE);
+         else
+            strengthBar.setForeground(Color.GREEN);
       }
       finally
       {
