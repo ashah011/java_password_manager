@@ -7,12 +7,12 @@ import java.util.Arrays;
 
 public class Display extends JFrame
 {
-    private static final JPasswordField passwordField = new JPasswordField(20);
-    private static final JPasswordField confirmField = new JPasswordField(20);
-    private static final JTextField websiteField = new JTextField(20);
-    private static final JButton setButton = new JButton("Set your password!");
-    private static final JLabel statusLabel = new JLabel();
-    private static final JProgressBar strengthBar = new JProgressBar(0, 100);
+    private final JPasswordField passwordField = new JPasswordField(20);
+    private final JPasswordField confirmField = new JPasswordField(20);
+    private final JTextField websiteField = new JTextField(20);
+    private final JButton setButton = new JButton("Set your password!");
+    private final JLabel statusLabel = new JLabel();
+    private final JProgressBar strengthBar = new JProgressBar(0, 100);
    
     public Display()
     {
@@ -49,7 +49,7 @@ public class Display extends JFrame
          setSize(500,500);
          setLocationRelativeTo(null);
          setVisible(true);
-   };
+   }
 
    
     private void handlePassword()

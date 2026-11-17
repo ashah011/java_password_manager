@@ -22,17 +22,18 @@ public class Vault {
             throw new IllegalArgumentException("Index out of bounds");
         }
     }
-    public void removeEntry(int index) //removes entry at specified index
+    public boolean removeEntry(int index) //removes entry at specified index and returns true if successful, false if index is invalid
+{
+    try
     {
-        try
-        {
-            entries.remove(index);
-        }
-        catch(IndexOutOfBoundsException e)
-        {
-            throw new IllegalArgumentException("Index out of bounds");
-        }
+        entries.remove(index);
+        return true;
     }
+    catch (IndexOutOfBoundsException e)
+    {
+        return false;   // no entry at that position
+    }
+}
     public int getSize() //makes sure the size of the list is correct
     {
         return entries.size(); 

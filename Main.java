@@ -3,6 +3,6 @@ public class Main
 {
      public static void main(String[] args)
     {
-      SwingUtilities.invokeLater(() -> new Display());
+         new CommandLineInterface().run();
     }
 }
